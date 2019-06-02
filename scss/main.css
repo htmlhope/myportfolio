@@ -1,0 +1,118 @@
+/*Another way to do the overlay thing above: Remove the overlay div from the body of html, instead of having '.overlay' above, use a pseudoelement! Change the .overlay above to '&:after', keep everything else the same except add 'content: '';' above position: absolute. Since we don't actually want any additional content here, an empty string with quotes is used. It has the same effect as using .overlay with the html div with class "overlay". Reason to use: Reduces markup of html */
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background: #444;
+  color: #fff;
+  height: 100%;
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+}
+
+body#bg-img {
+  background: url(../img/boardwalk.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+body#bg-img .overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(68, 68, 68, 0.5);
+  z-index: -1;
+}
+
+header {
+  margin: 0 auto;
+  z-index: 2;
+  width: 100%;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: 400;
+}
+
+h1.lg-heading,
+h2.lg-heading,
+h3.lg-heading {
+  font-size: 5rem;
+}
+
+h1.sm-heading,
+h2.sm-heading,
+h3.sm-heading {
+  margin-bottom: 2rem;
+  padding: 0.2rem 1rem;
+}
+
+/* &.lg-heading nested is the same as this:
+h1.lg-heading {
+  font-size: 6rem;
+}
+*/
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #1aee84;
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+}
+
+.text-secondary {
+  color: #1aee84;
+}
+
+main {
+  height: 100%;
+  padding: 3rem 1rem 0;
+}
+
+main .icons {
+  margin: auto;
+  width: 100%;
+}
+
+main .icons a {
+  padding: 0.4rem;
+}
+
+main .icons a:hover {
+  color: #1aee84;
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+}
+
+main#home {
+  overflow: hidden;
+}
+
+main#home h1 {
+  margin-top: 20vh;
+}
+
+section .practice {
+  margin-left: auto;
+  margin-right: auto;
+  color: black;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+/*Because each icon is within an 'a' tag, we can nest them like above*/
+/* Using &:hover is the same as using a:hover in regular css */
+/*we will be using 'all' instead of 'color' for the transition above, because we're creating a mix-in called the 'easeOut' mixin to reuse in our code */
+/*Using overflow: hidden will remove the scroll bars from the text area if the content is too big to fit its container*/
+/*# sourceMappingURL=main.css.map */

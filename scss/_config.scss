@@ -1,0 +1,31 @@
+$primary-color: #444;
+$secondary-color: #1aee84;
+$show-home-image: true;
+$home-image: url(../img/boardwalk.jpg);
+$background-opacity: 0.5;
+
+@mixin easeOut {
+  transition: all 0.5s ease-out;
+}
+
+@mixin background {
+  @if $show-home-image {
+    &#bg-img {
+      background: $home-image;
+      background-size: cover;
+      background-position: center;
+
+      .overlay {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba($primary-color, $background-opacity);
+        z-index: -1;
+      }
+    }
+  }
+}
+
+/*Another way to do the overlay thing above: Remove the overlay div from the body of html, instead of having '.overlay' above, use a pseudoelement! Change the .overlay above to '&:after', keep everything else the same except add 'content: '';' above position: absolute. Since we don't actually want any additional content here, an empty string with quotes is used. It has the same effect as using .overlay with the html div with class "overlay". Reason to use: Reduces markup of html */

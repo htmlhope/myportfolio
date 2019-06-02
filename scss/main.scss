@@ -1,0 +1,98 @@
+@import "config";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  @include background;
+  background: $primary-color;
+  color: #fff;
+  height: 100%;
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+}
+
+//HEADER
+header {
+  margin: 0 auto;
+  z-index: 2;
+  width: 100%;
+}
+
+//HEADINGS
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: 400;
+  &.lg-heading {
+    font-size: 5rem;
+  }
+  &.sm-heading {
+    margin-bottom: 2rem;
+    padding: 0.2rem 1rem;
+  }
+}
+/* &.lg-heading nested is the same as this:
+h1.lg-heading {
+  font-size: 6rem;
+}
+*/
+
+a {
+  color: #fff;
+  text-decoration: none;
+
+  &:hover {
+    color: $secondary-color;
+    @include easeOut;
+  }
+}
+
+//SYLING THE SPAN
+.text-secondary {
+  color: $secondary-color;
+}
+
+main {
+  height: 100%;
+  padding: 3rem 1rem 0;
+
+  .icons {
+    margin: auto;
+    width: 100%;
+
+    a {
+      padding: 0.4rem;
+
+      &:hover {
+        color: $secondary-color;
+        @include easeOut;
+      }
+    }
+  }
+
+  &#home {
+    overflow: hidden;
+    h1 {
+      margin-top: 20vh;
+    }
+  }
+}
+
+section .practice {
+  margin-left: auto;
+  margin-right: auto;
+  color: black;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+/*Because each icon is within an 'a' tag, we can nest them like above*/
+/* Using &:hover is the same as using a:hover in regular css */
+/*we will be using 'all' instead of 'color' for the transition above, because we're creating a mix-in called the 'easeOut' mixin to reuse in our code */
+
+/*Using overflow: hidden will remove the scroll bars from the text area if the content is too big to fit its container*/
